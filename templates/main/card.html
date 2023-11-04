@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Организация {{ organization.name }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body>
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="#" class="nav-link px-2 text-white">{{ organization.name }}</a></li>
+                    </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="{{ organization.logo.url }}" class="d-block mx-lg-auto img-fluid" style="border-radius: 15px;" alt="Bootstrap Themes"
+                    width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6" style="text-align: center;">
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">{{ organization.name }}</h1>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                </div>
+            </div>
+        </div>
+        <div class="row g-5">
+            <div class="col-md-7 col-lg-8">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary">Информация об организаций</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">БИН</h6>
+                            <small class="text-body-secondary">{{ organization.bin }}</small>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Адрес</h6>
+                            <small class="text-body-secondary">{{ organization.address }}</small>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Номер телефона</h6>
+                            <small class="text-body-secondary">{{ organization.phone}}</small>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Факс</h6>
+                            <small class="text-body-secondary">{{ organization.fax }}</small>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Электронная почта</h6>
+                            <small class="text-body-secondary">{{ organization.email }}</small>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Сайт</h6>
+                            <small class="text-body-secondary">{{ organization.website }}</small>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Банк второго уровня</h6>
+                            <small class="text-body-secondary">{{ organization.second_level_bank }}</small>
+                        </div>
+                    </li>
+                    {% if organization.insurance_holdings != None %}
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Страховые холдинги</h6>
+                            <small class="text-body-secondary">{{ organization.insurance_holdings }}</small>
+                        </div>
+                    </li>
+                    {% endif %}
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Кастодиан</h6>
+                            <small class="text-body-secondary">{{ organization.custodian }}</small>
+                        </div>
+                    </li>
+                    {% if organization.brokers_dealers != None %}
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Брокеры-дилеры</h6>
+                            <small class="text-body-secondary">{{ organization.brokers_dealers }}</small>
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% if organization.conglomerates != None %}
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Банковские конгломераты</h6>
+                            <small class="text-body-secondary">{{ organization.conglomerates }}</small>
+                        </div>
+                    </li>
+                    {% endif %}
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Связанные банки</h6>
+                            <small class="text-body-secondary">{{ organization.bank_holdings }}</small>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">Крупные участники</h6>
+                            <small class="text-body-secondary">{{ organization.participants }}</small>
+                        </div>
+                    </li>
+
+                </ul>
+
+
+            </div>
+            <div class="col-md-5 col-lg-4 order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary">Руководящие лица</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    {% for position, executives in executives_by_position.items %}
+                        <li class="list-group-item">
+                            <h6 class="my-0">{{ position }}</h6>
+                            <small class="text-body-secondary">
+                                {% for executive in executives %}
+                                    {{ executive.full_name }}
+                                    <br>
+                                {% endfor %}
+                            </small>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- <div class="col-md-5 col-lg-4 order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary">Руководящие лица</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    {% for i in directors %}
+                    <li class="list-group-item d-flex justify-content-between lh-sm">
+                        <div>
+                            <h6 class="my-0">{% for k in i.executive.position.all %} {{ k }} {% endfor %}</h6>
+                            <small class="text-body-secondary">{{ i.executive.full_name }}</small>
+                        </div>
+                    </li>
+                    {% endfor %}
+            </div> -->
+
+        </div>
+
+
+
+
+
+
+        <!-- {% for i in directors %}
+        <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+            <div class="d-flex justify-content-between">
+                <strong class="text-gray-dark">{{ i.executive.full_name }}</strong>
+            </div>
+            <span class="d-block">{% for k in i.executive.position.all %} {{ k }}, {% endfor %} </span>
+        </div>
+        {% endfor %} -->
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+
+</html>
