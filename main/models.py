@@ -65,8 +65,10 @@ class Executive(models.Model):
     
 
 class ExecutiveOnOrganization(models.Model):
-    executive = models.ForeignKey(Executive, on_delete=models.PROTECT, verbose_name='Руководящее лицо')
-    organization = models.ForeignKey(FinancialOrganization, on_delete=models.PROTECT, verbose_name='Финансовая организация')
+    executive = models.ForeignKey(Executive, on_delete=models.PROTECT, 
+                                  verbose_name='Руководящее лицо', unique=True)
+    organization = models.ForeignKey(FinancialOrganization, on_delete=models.PROTECT, 
+                                     verbose_name='Финансовая организация', unique=True)
     start_date = models.DateField(verbose_name='Дата начала работы')
     end_date = models.DateField(verbose_name='Дата окончания работы', null=True, blank=True,)
 

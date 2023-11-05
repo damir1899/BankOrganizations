@@ -1,11 +1,13 @@
 from django.urls import path
 
 from .views import (IndexView, 
-                    OrganizationCardView)
+                    OrganizationCardView,
+                    ExecutiveCardView)
 
 
 urlpatterns = [
     path('', IndexView),
-    path('<slug:slug>/', OrganizationCardView, name='product_detail'),
+    path('organization/<slug:slug>/', OrganizationCardView, name='organization_card'),
+    path('executive/<slug:slug>/', ExecutiveCardView, name='executive_card'),
 
 ]
